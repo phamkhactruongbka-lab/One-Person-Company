@@ -1,0 +1,50 @@
+{
+  "updated_at": "2026-10-27T17:07:00Z",
+  "status": "strict_zero_capital_enforced",
+  "currency": "VND",
+  "department": "Phòng Kế Toán & Quản Trị Tài Chính",
+  "robot_lead": "Ledger-Fin",
+  "iron_rules": {
+    "current_capital": 0,
+    "capital_status": "Hết vốn hoàn toàn (0 VNĐ)",
+    "maximum_allowed_additional_expenses": 0,
+    "spending_lock": "LOCKED — Tuyệt đối không chi tiền, không mua công cụ, không mua API, không chạy ads",
+    "infrastructure_tier": "100% Free Tier (GitHub Pages Free, GitHub Actions Free, Python stdlib)",
+    "survival_threshold_vnd": 550000,
+    "survival_deadline": "2026-11-20",
+    "renewal_target_date": "2026-11-22"
+  },
+  "survival_milestone": {
+    "capital_target_name": "Quỹ gia hạn ChatGPT Plus từ tiền bán dịch vụ",
+    "minimum_cash_required": 550000,
+    "deadline_cash_collected": "2026-11-20",
+    "renewal_scheduled_date": "2026-11-22",
+    "buffer_days": 2,
+    "experimental_sales_target": 900000,
+    "current_cash_available": 0,
+    "current_pending_escrow": 0,
+    "shortfall_remaining": 550000
+  },
+  "service_portfolio": {
+    "primary_package": {
+      "name": "Nội dung cho shop thiết bị",
+      "price": 450000,
+      "deliverables": "5 bài Facebook + 5 mô tả sản phẩm ngắn + Lịch 7 ngày + 1 vòng sửa",
+      "cost_to_produce": 0
+    },
+    "entry_package": {
+      "name": "Mô tả sản phẩm nhanh",
+      "price": 150000,
+      "deliverables": "3 mô tả sản phẩm ngắn + 1 vòng sửa",
+      "cost_to_produce": 0
+    }
+  },
+  "actual": {
+    "cash_in_bank": 0,
+    "expenses_incurred": 0,
+    "units_completed": 0,
+    "units_in_progress": 0,
+    "leads_contacted": 0
+  },
+  "readiness_percent": 85
+}
