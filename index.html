@@ -1988,6 +1988,303 @@
       border-color: #ef4444;
       color: #f87171;
     }
+
+    /* ================================================================= */
+    /* CHATBOT HOLOGRAM VUI TÍNH: "CINEBOT-0Đ — TRỢ LÝ MẶN MÒI"          */
+    /* ================================================================= */
+    .cinebot-widget {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 999;
+      font-family: inherit;
+    }
+    .cinebot-teaser {
+      position: absolute;
+      right: 68px;
+      bottom: 10px;
+      background: linear-gradient(135deg, rgba(8, 28, 52, 0.96), rgba(4, 15, 32, 0.98));
+      border: 1.5px solid #22d3ee;
+      color: #ecfeff;
+      font-size: 0.74rem;
+      font-weight: 700;
+      padding: 8px 12px;
+      border-radius: 14px 14px 2px 14px;
+      width: max-content;
+      max-width: 235px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.65), 0 0 16px rgba(34, 211, 238, 0.35);
+      cursor: pointer;
+      animation: teaserBob 2.6s infinite ease-in-out;
+      line-height: 1.35;
+    }
+    .cinebot-teaser strong {
+      color: #fde047;
+      display: block;
+      font-size: 0.7rem;
+      margin-bottom: 2px;
+    }
+    @keyframes teaserBob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+    .cinebot-fab {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, #22d3ee, #0284c7 65%, #0f172a 100%);
+      border: 2px solid #67e8f9;
+      box-shadow: 0 0 24px rgba(34, 211, 238, 0.75), 0 8px 20px rgba(0, 0, 0, 0.6);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 0;
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+    }
+    .cinebot-fab:hover {
+      transform: scale(1.08) rotate(-4deg);
+      box-shadow: 0 0 32px rgba(251, 191, 36, 0.9);
+      border-color: #fde047;
+    }
+    .cinebot-fab img {
+      width: 46px;
+      height: 46px;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.8));
+      animation: mechaBodyArticulate 1.8s infinite ease-in-out;
+    }
+    .cinebot-online-dot {
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: #10b981;
+      border: 2px solid #041022;
+      box-shadow: 0 0 8px #10b981;
+    }
+
+    .cinebot-panel {
+      position: absolute;
+      right: 0;
+      bottom: 70px;
+      width: 356px;
+      max-height: 510px;
+      background: linear-gradient(170deg, rgba(7, 20, 40, 0.97) 0%, rgba(3, 10, 24, 0.99) 100%);
+      border: 1.5px solid #22d3ee;
+      border-radius: 18px;
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.85), 0 0 32px rgba(34, 211, 238, 0.35);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      backdrop-filter: blur(12px);
+    }
+    .cinebot-panel.open {
+      display: flex;
+      animation: chatPopIn 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    @keyframes chatPopIn {
+      from { opacity: 0; transform: translateY(16px) scale(0.94); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .cinebot-header {
+      background: linear-gradient(90deg, rgba(6, 182, 212, 0.24), rgba(245, 158, 11, 0.18));
+      border-bottom: 1px solid rgba(34, 211, 238, 0.35);
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .cinebot-head-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .cinebot-head-left img {
+      width: 38px;
+      height: 38px;
+      object-fit: contain;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1.5px solid #22d3ee;
+      border-radius: 50%;
+      padding: 2px;
+    }
+    .cinebot-head-title {
+      font-size: 0.84rem;
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1.2;
+    }
+    .cinebot-head-sub {
+      font-size: 0.66rem;
+      color: #6ee7b7;
+      font-weight: 700;
+    }
+    .cinebot-close {
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      color: #cbd5e1;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 800;
+    }
+    .cinebot-close:hover {
+      background: #ef4444;
+      color: #ffffff;
+      border-color: #f87171;
+    }
+
+    .cinebot-messages {
+      padding: 12px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-height: 285px;
+      min-height: 220px;
+      scrollbar-width: thin;
+    }
+    .cb-msg {
+      display: flex;
+      gap: 8px;
+      align-items: flex-end;
+      font-size: 0.77rem;
+      line-height: 1.42;
+    }
+    .cb-msg.user {
+      flex-direction: row-reverse;
+    }
+    .cb-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #0d1b34;
+      border: 1px solid #22d3ee;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+    .cb-bubble {
+      background: rgba(15, 32, 60, 0.92);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #e2e8f0;
+      padding: 8px 11px;
+      border-radius: 13px 13px 13px 3px;
+      max-width: 82%;
+    }
+    .cb-msg.user .cb-bubble {
+      background: linear-gradient(135deg, #0284c7, #06b6d4);
+      border-color: #67e8f9;
+      color: #ffffff;
+      font-weight: 600;
+      border-radius: 13px 13px 3px 13px;
+    }
+    .cb-action-btn {
+      display: inline-block;
+      margin-top: 6px;
+      background: rgba(245, 158, 11, 0.2);
+      border: 1px solid #fbbf24;
+      color: #fde047;
+      font-size: 0.68rem;
+      font-weight: 800;
+      padding: 4px 8px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+    .cb-action-btn:hover {
+      background: #f59e0b;
+      color: #04101e;
+    }
+
+    .cinebot-chips {
+      display: flex;
+      gap: 5px;
+      overflow-x: auto;
+      padding: 6px 10px;
+      border-top: 1px solid rgba(56, 189, 248, 0.18);
+      background: rgba(6, 15, 32, 0.85);
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    .cinebot-chips::-webkit-scrollbar {
+      display: none;
+    }
+    .cb-chip {
+      flex-shrink: 0;
+      background: rgba(14, 165, 233, 0.14);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: #7dd3fc;
+      font-size: 0.66rem;
+      font-weight: 700;
+      padding: 4px 9px;
+      border-radius: 999px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.18s ease;
+    }
+    .cb-chip:hover {
+      background: #22d3ee;
+      color: #04101e;
+    }
+
+    .cinebot-input-row {
+      display: flex;
+      gap: 6px;
+      padding: 8px 10px;
+      border-top: 1px solid rgba(56, 189, 248, 0.25);
+      background: rgba(4, 11, 24, 0.96);
+    }
+    .cinebot-input {
+      flex: 1;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: #ffffff;
+      border-radius: 9px;
+      padding: 7px 10px;
+      font-size: 0.76rem;
+      outline: none;
+    }
+    .cinebot-input:focus {
+      border-color: #22d3ee;
+      box-shadow: 0 0 10px rgba(34, 211, 238, 0.35);
+    }
+    .cinebot-send {
+      background: linear-gradient(135deg, #22d3ee, #0284c7);
+      border: 1px solid #67e8f9;
+      color: #04101e;
+      font-weight: 900;
+      font-size: 0.76rem;
+      padding: 0 13px;
+      border-radius: 9px;
+      cursor: pointer;
+    }
+    .cinebot-send:hover {
+      background: #fde047;
+      border-color: #fef08a;
+    }
+
+    @media (max-width: 640px) {
+      .cinebot-widget {
+        right: 12px;
+        bottom: 12px;
+      }
+      .cinebot-panel {
+        width: calc(100vw - 24px);
+        max-height: 72vh;
+        bottom: 66px;
+      }
+      .cinebot-teaser {
+        max-width: 185px;
+        font-size: 0.66rem;
+        padding: 6px 9px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -2590,6 +2887,58 @@
       </p>
     </div>
   </footer>
+
+  <!-- ============================================================= -->
+  <!-- CHATBOT HOLOGRAM VUI TÍNH: "CINEBOT-0Đ — TRỢ LÝ MẶN MÒI"      -->
+  <!-- ============================================================= -->
+  <div class="cinebot-widget" id="cinebotWidget" aria-label="Trợ lý ảo CineBot-0Đ">
+    <div class="cinebot-teaser" id="cinebotTeaser" onclick="toggleCinebot(true)">
+      <strong>🤖 CineBot-0Đ (Lễ Tân Mặn Mòi)</strong>
+      Hỏi em đi! Công ty 0đ nhưng trả lời mặn gấp đôi muối biển 🧂😂
+    </div>
+
+    <div class="cinebot-panel" id="cinebotPanel" role="dialog" aria-label="Hộp thoại Chat với CineBot-0Đ">
+      <div class="cinebot-header">
+        <div class="cinebot-head-left">
+          <img src="assets/robot-worker.png" alt="Avatar CineBot-0Đ">
+          <div>
+            <div class="cinebot-head-title">🤖 CineBot-0Đ · Lễ Tân Mặn Mòi</div>
+            <div class="cinebot-head-sub">● Online 24/7 (Chạy bằng niềm tin &amp; 0 VNĐ)</div>
+          </div>
+        </div>
+        <button type="button" class="cinebot-close" onclick="toggleCinebot(false)" aria-label="Đóng hộp thoại chat">✕</button>
+      </div>
+
+      <div class="cinebot-messages" id="cinebotMessages" aria-live="polite">
+        <div class="cb-msg bot">
+          <img class="cb-avatar" src="assets/robot-worker.png" alt="CineBot">
+          <div class="cb-bubble">
+            Kính chào Quý khách! Em là <strong>CineBot-0Đ</strong> — Lễ tân kiêm Bảo vệ của <strong>CineTech AI Corp</strong> 🤖✨<br><br>
+            Công ty em có 7 phòng ban toàn Robot cày ngày đêm không lương, vốn hiện tại tròn trĩnh <strong>0 đồng</strong>! Anh/chị muốn hỏi <em>bảng giá viết bài 450k</em>, <em>tư vấn máy chiếu</em>, hay muốn <em>bóc phốt Sếp Tổng</em> ạ? 😂
+          </div>
+        </div>
+      </div>
+
+      <div class="cinebot-chips" aria-label="Câu hỏi gợi ý nhanh">
+        <button type="button" class="cb-chip" onclick="askCinebot('💸 Công ty còn tiền không?')">💸 Công ty còn tiền không?</button>
+        <button type="button" class="cb-chip" onclick="askCinebot('📦 Báo giá gói viết bài 450k')">📦 Báo giá gói 450k</button>
+        <button type="button" class="cb-chip" onclick="askCinebot('🎬 Tư vấn máy chiếu & loa')">🎬 Tư vấn máy chiếu &amp; loa</button>
+        <button type="button" class="cb-chip" onclick="askCinebot('🤖 Kể xấu 7 phòng ban')">🤖 Kể xấu 7 phòng ban</button>
+        <button type="button" class="cb-chip" onclick="askCinebot('☕ Quét QR nuôi Robot')">☕ Quét QR nuôi Robot</button>
+        <button type="button" class="cb-chip" onclick="askCinebot('😂 Sếp Tổng có dữ không?')">😂 Sếp Tổng có dữ không?</button>
+      </div>
+
+      <form class="cinebot-input-row" onsubmit="handleCinebotSubmit(event)">
+        <input type="text" id="cinebotInput" class="cinebot-input" placeholder="Nhập câu hỏi bất kỳ cho CineBot..." autocomplete="off">
+        <button type="submit" class="cinebot-send">Gửi 🚀</button>
+      </form>
+    </div>
+
+    <button type="button" class="cinebot-fab" onclick="toggleCinebot()" aria-label="Mở Trợ lý Chatbot CineBot-0Đ" title="Trò chuyện với CineBot-0Đ">
+      <span class="cinebot-online-dot"></span>
+      <img src="assets/robot-worker.png" alt="CineBot-0Đ">
+    </button>
+  </div>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
@@ -3311,6 +3660,152 @@
         kpiCard.className = 'dash-kpi-val alert';
       }
       syncLiveMetrics();
+    }
+
+    // =============================================================
+    // BỘ NÃO TRỢ LÝ CHATBOT VUI TÍNH: "CINEBOT-0Đ — LỄ TÂN MẶN MÒI"
+    // =============================================================
+    function toggleCinebot(forceState) {
+      const panel = document.getElementById('cinebotPanel');
+      const teaser = document.getElementById('cinebotTeaser');
+      if (!panel) return;
+      const isOpen = typeof forceState === 'boolean' ? forceState : !panel.classList.contains('open');
+      panel.classList.toggle('open', isOpen);
+      if (teaser) teaser.style.display = isOpen ? 'none' : 'block';
+      if (isOpen) {
+        const inp = document.getElementById('cinebotInput');
+        if (inp && window.innerWidth > 640) inp.focus();
+      }
+    }
+
+    function appendCinebotMsg(role, htmlText, actionLabel, actionFn) {
+      const box = document.getElementById('cinebotMessages');
+      if (!box) return;
+
+      const row = document.createElement('div');
+      row.className = 'cb-msg ' + role;
+
+      if (role === 'bot') {
+        const av = document.createElement('img');
+        av.className = 'cb-avatar';
+        av.src = 'assets/robot-worker.png';
+        av.alt = 'CineBot';
+        row.appendChild(av);
+      }
+
+      const bubble = document.createElement('div');
+      bubble.className = 'cb-bubble';
+      bubble.innerHTML = htmlText;
+
+      if (actionLabel && typeof actionFn === 'function') {
+        const br = document.createElement('br');
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'cb-action-btn';
+        btn.textContent = actionLabel;
+        btn.onclick = actionFn;
+        bubble.append(br, btn);
+      }
+
+      row.appendChild(bubble);
+      box.appendChild(row);
+      box.scrollTop = box.scrollHeight;
+    }
+
+    function getWittyBotReply(rawQuestion) {
+      const q = rawQuestion.toLowerCase();
+
+      if (q.includes('tiền') || q.includes('vốn') || q.includes('tài chính') || q.includes('kế toán') || q.includes('nghèo') || q.includes('0đ')) {
+        return {
+          text: 'Chạm đúng nỗi đau rồi ạ 😭! Trưởng phòng Kế toán <strong>Ledger-Fin (P.104)</strong> vừa báo cáo: <strong>Vốn hiện tại = 0 VNĐ tròn trĩnh</strong> (két sắt chỉ còn mạng nhện)!<br><br>Tụi em đang chạy chiến dịch sinh tồn gom đủ <strong>550.000đ trước 20/11</strong> để đóng tiền gia hạn não ChatGPT Plus ngày 22/11, không là cả 7 phòng ban biến thành nồi cơm điện hết ạ!',
+          btnText: '💰 Bay tới Phòng Tài Chính P.104 kiểm tra két',
+          action: () => { sendCeoTo(5); }
+        };
+      }
+
+      if (q.includes('giá') || q.includes('450') || q.includes('150') || q.includes('dịch vụ') || q.includes('viết bài') || q.includes('thuê') || q.includes('shop')) {
+        return {
+          text: 'Báo giá rẻ giật mình luôn ạ 🔥:<br>• <strong>Gói Chủ Lực (450.000đ)</strong>: Trọn bộ <strong>5 bài Facebook chuẩn insight + 5 mô tả sản phẩm + Lịch đăng 7 ngày + 1 vòng sửa</strong> (chưa bằng 1 nồi lẩu mà có nguyên dàn Robot cày!).<br>• <strong>Gói Khởi Động (150.000đ)</strong>: <strong>3 mô tả sản phẩm chốt sale nhanh</strong>.<br><br>Anh/chị chốt 2 gói là cứu sống cả công ty em qua mùa trăng này luôn đó ạ! 🤣',
+          btnText: '✍️ Xem Ban Biên Tập P.102 đang viết nháp',
+          action: () => { sendCeoTo(1); }
+        };
+      }
+
+      if (q.includes('máy chiếu') || q.includes('tai nghe') || q.includes('loa') || q.includes('soundbar') || q.includes('thiết bị') || q.includes('sony') || q.includes('benq') || q.includes('sonos')) {
+        return {
+          text: 'Gu điện ảnh đỉnh chóp luôn ạ 🎬🍿! Bên <strong>Phòng Thiết Bị P.103 (Sonic-Gear)</strong> đã kiểm định 3 siêu phẩm xác minh chính hãng:<br>1. <strong>Máy chiếu BenQ / HY300 / Beecube</strong>: Biến trần phòng ngủ thành rạp IMAX 100 inch.<br>2. <strong>Loa Soundbar Sonos</strong>: Nghe rõ từng tiếng thở của diễn viên.<br>3. <strong>Tai nghe chống ồn Sony ANC</strong>: Bật lên là sếp gọi bên cạnh cũng điếc tạm thời hợp pháp! 😂',
+          btnText: '🎧 Điều Sếp tới Phòng Thiết Bị P.103',
+          action: () => { sendCeoTo(4); }
+        };
+      }
+
+      if (q.includes('qr') || q.includes('donate') || q.includes('ủng hộ') || q.includes('nuôi') || q.includes('mì tôm') || q.includes('chuyển khoản')) {
+        return {
+          text: 'Trời ơi quý nhân phù hộ đây rồi 🥹🙏! Một ly trà sữa của anh/chị là 3 ngày chạy điện của cả dàn Robot tụi em!<br><br>Em vừa <strong>bật phóng to Mã QR Donate</strong> ở góc trái trên sàn 3D và cộng thử 50k lấy hên cho anh/chị ngắm liền nè!',
+          btnText: '💎 Phóng to Mã QR Donate ngay',
+          action: () => { zoomDonateQr(); simulateCash(50000); }
+        };
+      }
+
+      if (q.includes('sếp') || q.includes('ceo') || q.includes('tổng biên tập') || q.includes('dữ không')) {
+        return {
+          text: 'Suỵt! Nói nhỏ thôi kẻo <strong>Sếp Tổng Biên Tập</strong> nghe thấy ạ 🤫! Sếp em mặc giáp vàng cam ngầu như Iron Man, cứ <strong>3.6 giây</strong> lại lượn vèo qua 1 phòng kèm sóng xung kích EMP.<br><br>Phòng nào chưa tới lượt kiểm tra là tắt màn hình giả bộ gõ phím khí thế lắm, hễ Sếp bay tới mới bật Hologram sáng trưng lên báo cáo! 🤣',
+          btnText: '⏸️ Bấm dừng/chạy Sếp Tổng tuần tra',
+          action: () => { togglePatrol(); }
+        };
+      }
+
+      if (q.includes('phòng ban') || q.includes('kể xấu') || q.includes('nội bộ') || q.includes('mấy người') || q.includes('robot')) {
+        return {
+          text: 'Nội bộ công ty em toàn chuyện hài công nghệ thôi ạ 😂:<br>• <strong>P.101 R&D (Radar-503)</strong>: Săn 30 tin/ngày lúc 09:15 sáng.<br>• <strong>P.102 Biên Tập (Neuro-Editor)</strong>: Ôm 10 bản nháp gõ muốn mòn tay sắt.<br>• <strong>P.201 Pháp Chế QA (Cyber-Guard)</strong>: Khó tính nhất công ty, soi đủ 27/27 bài test.<br>• <strong>P.202 DevOps (Cron-Ops)</strong>: Canh GitHub Pages xanh mượt.<br>• <strong>P.104 Kế Toán (Ledger-Fin)</strong>: Giữ két sắt 0đ nhưng mặt lúc nào cũng căng!',
+          btnText: '📡 Dẫn đi thăm Phòng R&D P.101 trước',
+          action: () => { sendCeoTo(0); }
+        };
+      }
+
+      if (q.includes('chào') || q.includes('hi') || q.includes('hello') || q.includes('ơi')) {
+        return {
+          text: 'Dạ <strong>CineBot-0Đ</strong> nghe rõ trả lời! 🤖⚡ Hôm nay anh/chị ghé thăm trụ sở 3D Hologram của tụi em là số người xem tăng vọt liền. Anh/chị muốn em dẫn đi soi phòng ban nào hay lấy tin mẫu chào hàng 20 Shop ạ?',
+          btnText: '🎯 Cuộn xuống Kho 20 Shop Mục Tiêu',
+          action: () => { document.getElementById('leads-section').scrollIntoView({ behavior: 'smooth' }); }
+        };
+      }
+
+      // Phản hồi mặc định hài hước cho mọi câu hỏi tự do
+      const funnyFallbacks = [
+        {
+          text: `Câu hỏi <em>"${rawQuestion.replace(/[<>&"]/g, '')}"</em> của anh/chị làm CPU của em nảy số tanh tách luôn 🤯! Hiện tại em đang chạy bằng gói 0đ nên xin phép trả lời thật thà: Tụi em chuyên viết nội dung siêu cuốn cho shop thiết bị (gói 450k) và tự động hóa tòa soạn điện ảnh 24/7 ạ!`,
+          btnText: '🚀 Xem Quy Trình Tự Động 8 Bước',
+          action: () => { document.getElementById('pipeline-section').scrollIntoView({ behavior: 'smooth' }); }
+        },
+        {
+          text: `Haha câu này căng đét! Để em gọi <strong>Phòng Pháp Chế QA (P.201)</strong> và <strong>Sếp Tổng</strong> ra họp khẩn trả lời anh/chị nhé 😂. Trong lúc chờ đợi, anh/chị bấm thử vào các phòng ban trên sàn 3D xem Sếp em bay phản lực cực nghệ luôn!`,
+          btnText: '🛡️ Điều Sếp tới Phòng Pháp Chế QA P.201',
+          action: () => { sendCeoTo(2); }
+        }
+      ];
+      return funnyFallbacks[Math.floor(Math.random() * funnyFallbacks.length)];
+    }
+
+    function askCinebot(questionText) {
+      if (!questionText || !questionText.trim()) return;
+      const cleanQ = questionText.trim();
+      toggleCinebot(true);
+      appendCinebotMsg('user', cleanQ.replace(/</g, '&lt;').replace(/>/g, '&gt;'));
+
+      setTimeout(() => {
+        const reply = getWittyBotReply(cleanQ);
+        appendCinebotMsg('bot', reply.text, reply.btnText, reply.action);
+      }, 360);
+    }
+
+    function handleCinebotSubmit(e) {
+      e.preventDefault();
+      const inp = document.getElementById('cinebotInput');
+      if (!inp || !inp.value.trim()) return;
+      const val = inp.value;
+      inp.value = '';
+      askCinebot(val);
     }
 
     updateWorldCamera();
