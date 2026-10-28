@@ -1143,71 +1143,69 @@
       z-index: 10;
     }
 
-    /* KHUNG MÃ QR DONATE DUY TRÌ HOẠT ĐỘNG CÔNG TY (VỊ TRÍ GÓC TRÁI TRÊN) */
+    /* KHUNG MÃ QR DONATE SIÊU GỌN GÓC TRÁI TRÊN (KHÔNG CHE ROBOT 3D) */
     .donate-qr-hud {
       position: absolute;
-      top: 54px;
-      left: 16px;
-      width: 172px;
-      background: linear-gradient(165deg, rgba(8, 24, 46, 0.92) 0%, rgba(4, 14, 30, 0.96) 100%);
-      border: 1.5px solid #f59e0b;
-      border-radius: 14px;
-      padding: 9px 10px;
-      backdrop-filter: blur(8px);
+      top: 48px;
+      left: 12px;
+      width: 98px;
+      background: linear-gradient(165deg, rgba(8, 24, 46, 0.88) 0%, rgba(4, 14, 30, 0.92) 100%);
+      border: 1px solid rgba(245, 158, 11, 0.75);
+      border-radius: 10px;
+      padding: 5px 6px;
+      backdrop-filter: blur(6px);
       z-index: 12;
       box-shadow:
-        0 0 24px rgba(245, 158, 11, 0.35),
-        inset 0 0 18px rgba(34, 211, 238, 0.16);
+        0 0 14px rgba(245, 158, 11, 0.25),
+        inset 0 0 10px rgba(34, 211, 238, 0.12);
       text-align: center;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
     }
     .donate-qr-hud:hover {
-      transform: translateY(-2px) scale(1.02);
-      box-shadow:
-        0 0 32px rgba(245, 158, 11, 0.6),
-        inset 0 0 22px rgba(34, 211, 238, 0.25);
+      transform: scale(1.04);
+      border-color: #fde047;
+      box-shadow: 0 0 20px rgba(245, 158, 11, 0.5);
     }
     .donate-qr-hud.zoomed {
-      width: 248px;
+      width: 210px;
+      padding: 9px 10px;
       z-index: 30;
+      background: rgba(4, 14, 30, 0.97);
       box-shadow:
-        0 0 50px rgba(245, 158, 11, 0.85),
-        inset 0 0 28px rgba(34, 211, 238, 0.35);
+        0 0 45px rgba(245, 158, 11, 0.85),
+        inset 0 0 24px rgba(34, 211, 238, 0.3);
     }
     .donate-qr-hud.zoomed .donate-qr-frame {
-      width: 212px;
-      height: 212px;
+      width: 176px;
+      height: 176px;
     }
     .donate-qr-head {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
-      margin-bottom: 6px;
-      font-size: 0.63rem;
+      margin-bottom: 3px;
+      font-size: 0.54rem;
       font-weight: 900;
       color: #fde047;
-      letter-spacing: 0.03em;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
     }
     .donate-qr-badge {
-      background: rgba(245, 158, 11, 0.22);
-      border: 1px solid #fbbf24;
-      color: #fef08a;
-      font-size: 0.56rem;
-      padding: 1px 5px;
-      border-radius: 4px;
+      display: none;
     }
     .donate-qr-frame {
       position: relative;
-      width: 136px;
-      height: 136px;
-      margin: 0 auto 6px;
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 3px;
       background: #ffffff;
-      border: 2px solid #22d3ee;
-      border-radius: 10px;
+      border: 1.5px solid #22d3ee;
+      border-radius: 7px;
       padding: 2px;
       overflow: hidden;
-      box-shadow: 0 0 16px rgba(34, 211, 238, 0.45);
+      box-shadow: 0 0 10px rgba(34, 211, 238, 0.35);
       cursor: pointer;
+      transition: width 0.25s ease, height 0.25s ease;
     }
     .donate-qr-frame img,
     .donate-qr-frame svg {
@@ -1220,45 +1218,50 @@
       position: absolute;
       left: 0;
       right: 0;
-      height: 2px;
+      height: 1.5px;
       background: linear-gradient(90deg, transparent, #ef4444, #f59e0b, transparent);
-      box-shadow: 0 0 8px #ef4444;
+      box-shadow: 0 0 6px #ef4444;
       animation: qrLaserSweep 2.4s infinite ease-in-out;
       pointer-events: none;
     }
     @keyframes qrLaserSweep {
-      0%, 100% { top: 4px; opacity: 0.85; }
-      50% { top: calc(100% - 6px); opacity: 1; }
+      0%, 100% { top: 3px; opacity: 0.85; }
+      50% { top: calc(100% - 4px); opacity: 1; }
     }
     .donate-qr-title {
-      font-size: 0.68rem;
+      font-size: 0.55rem;
       font-weight: 800;
-      color: #ffffff;
-      line-height: 1.25;
-      margin-bottom: 2px;
+      color: #bae6fd;
+      line-height: 1.15;
+      margin-bottom: 3px;
+      white-space: nowrap;
     }
     .donate-qr-sub {
-      font-size: 0.6rem;
+      display: none;
+      font-size: 0.58rem;
       color: #7dd3fc;
-      margin-bottom: 6px;
-      line-height: 1.2;
+      margin-bottom: 5px;
+    }
+    .donate-qr-hud.zoomed .donate-qr-sub {
+      display: block;
     }
     .donate-qr-actions {
       display: flex;
-      gap: 4px;
+      gap: 3px;
       justify-content: center;
     }
     .donate-qr-btn {
       flex: 1;
       background: rgba(14, 165, 233, 0.18);
-      border: 1px solid rgba(56, 189, 248, 0.5);
+      border: 1px solid rgba(56, 189, 248, 0.45);
       color: #bae6fd;
-      font-size: 0.59rem;
+      font-size: 0.52rem;
       font-weight: 800;
-      padding: 3px 5px;
-      border-radius: 5px;
+      padding: 2px 3px;
+      border-radius: 4px;
       cursor: pointer;
       transition: all 0.18s ease;
+      white-space: nowrap;
     }
     .donate-qr-btn:hover {
       background: #f59e0b;
@@ -1545,45 +1548,46 @@
       }
       /* Thu gọn Khung QR Donate & Cụm Mắt Thần trên màn hình điện thoại để không che sàn 3D */
       .donate-qr-hud {
-        top: 38px;
-        left: 8px;
-        width: 108px;
-        padding: 5px 6px;
-        border-radius: 10px;
+        top: 36px;
+        left: 6px;
+        width: 74px;
+        padding: 4px;
+        border-radius: 8px;
       }
       .donate-qr-head {
-        font-size: 0.52rem;
-        margin-bottom: 4px;
+        font-size: 0.46rem;
+        margin-bottom: 2px;
       }
       .donate-qr-badge {
         display: none;
       }
       .donate-qr-frame {
-        width: 76px;
-        height: 76px;
-        margin-bottom: 4px;
+        width: 54px;
+        height: 54px;
+        margin-bottom: 2px;
       }
       .donate-qr-title {
-        font-size: 0.56rem;
+        display: none;
       }
       .donate-qr-sub {
         display: none;
       }
       .donate-qr-btn {
-        font-size: 0.53rem;
-        padding: 2px 3px;
+        font-size: 0.46rem;
+        padding: 1px 2px;
       }
       .donate-qr-hud.zoomed {
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
-        width: 236px;
+        width: 224px;
         padding: 10px;
       }
       .donate-qr-hud.zoomed .donate-qr-frame {
-        width: 196px;
-        height: 196px;
+        width: 186px;
+        height: 186px;
       }
+      .donate-qr-hud.zoomed .donate-qr-title,
       .donate-qr-hud.zoomed .donate-qr-sub {
         display: block;
       }
