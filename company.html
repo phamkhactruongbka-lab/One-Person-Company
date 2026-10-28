@@ -1089,6 +1089,118 @@
       z-index: 10;
     }
 
+    /* KHUNG MÃ QR DONATE DUY TRÌ HOẠT ĐỘNG CÔNG TY (VỊ TRÍ GÓC TRÁI TRÊN) */
+    .donate-qr-hud {
+      position: absolute;
+      top: 54px;
+      left: 16px;
+      width: 172px;
+      background: linear-gradient(165deg, rgba(8, 24, 46, 0.92) 0%, rgba(4, 14, 30, 0.96) 100%);
+      border: 1.5px solid #f59e0b;
+      border-radius: 14px;
+      padding: 9px 10px;
+      backdrop-filter: blur(8px);
+      z-index: 12;
+      box-shadow:
+        0 0 24px rgba(245, 158, 11, 0.35),
+        inset 0 0 18px rgba(34, 211, 238, 0.16);
+      text-align: center;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .donate-qr-hud:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow:
+        0 0 32px rgba(245, 158, 11, 0.6),
+        inset 0 0 22px rgba(34, 211, 238, 0.25);
+    }
+    .donate-qr-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+      font-size: 0.63rem;
+      font-weight: 900;
+      color: #fde047;
+      letter-spacing: 0.03em;
+    }
+    .donate-qr-badge {
+      background: rgba(245, 158, 11, 0.22);
+      border: 1px solid #fbbf24;
+      color: #fef08a;
+      font-size: 0.56rem;
+      padding: 1px 5px;
+      border-radius: 4px;
+    }
+    .donate-qr-frame {
+      position: relative;
+      width: 126px;
+      height: 126px;
+      margin: 0 auto 6px;
+      background: #ffffff;
+      border: 2px solid #22d3ee;
+      border-radius: 10px;
+      padding: 5px;
+      overflow: hidden;
+      box-shadow: 0 0 16px rgba(34, 211, 238, 0.45);
+      cursor: pointer;
+    }
+    .donate-qr-frame img,
+    .donate-qr-frame svg {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+    .qr-laser-line {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #ef4444, #f59e0b, transparent);
+      box-shadow: 0 0 8px #ef4444;
+      animation: qrLaserSweep 2.4s infinite ease-in-out;
+      pointer-events: none;
+    }
+    @keyframes qrLaserSweep {
+      0%, 100% { top: 4px; opacity: 0.85; }
+      50% { top: calc(100% - 6px); opacity: 1; }
+    }
+    .donate-qr-title {
+      font-size: 0.68rem;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.25;
+      margin-bottom: 2px;
+    }
+    .donate-qr-sub {
+      font-size: 0.6rem;
+      color: #7dd3fc;
+      margin-bottom: 6px;
+      line-height: 1.2;
+    }
+    .donate-qr-actions {
+      display: flex;
+      gap: 4px;
+      justify-content: center;
+    }
+    .donate-qr-btn {
+      flex: 1;
+      background: rgba(14, 165, 233, 0.18);
+      border: 1px solid rgba(56, 189, 248, 0.5);
+      color: #bae6fd;
+      font-size: 0.59rem;
+      font-weight: 800;
+      padding: 3px 5px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+    .donate-qr-btn:hover {
+      background: #f59e0b;
+      border-color: #fde047;
+      color: #04101e;
+    }
+
     /* CỤM MẮT THẦN HOLOGRAM GÓC PHẢI TRÊN VIEWPORT */
     .viewport-eye-hud {
       position: absolute;
@@ -1643,6 +1755,48 @@
 
       <div class="view-overlay-badge">
         🖱️ <strong>Kéo chuột</strong> để xoay góc view 3D · <strong>Click vào từng phòng ban</strong> để điều Tổng Biên Tập tới kiểm tra ngay
+      </div>
+
+      <!-- MÃ QR DONATE DUY TRÌ HOẠT ĐỘNG CÔNG TY (VỊ TRÍ GÓC TRÁI TRÊN THEO YÊU CẦU) -->
+      <div class="donate-qr-hud" id="donateQrHud" aria-label="Mã QR Donate duy trì hoạt động công ty">
+        <div class="donate-qr-head">
+          <span>💎 DONATE CÔNG TY</span>
+          <span class="donate-qr-badge">QUỸ 550K</span>
+        </div>
+        <div class="donate-qr-frame" onclick="zoomDonateQr()" title="Click để phóng to mã QR Donate">
+          <div class="qr-laser-line"></div>
+          <img id="donateQrImg" src="assets/donate-qr.png" alt="Mã QR Donate duy trì CineTech AI Corp" onerror="this.style.display='none'; document.getElementById('donateQrFallbackSvg').style.display='block';">
+          <svg id="donateQrFallbackSvg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:none;">
+            <rect width="120" height="120" rx="6" fill="#FFFFFF"/>
+            <!-- 3 góc định vị QR chuẩn -->
+            <rect x="8" y="8" width="32" height="32" rx="3" stroke="#020617" stroke-width="6" fill="#FFFFFF"/>
+            <rect x="17" y="17" width="14" height="14" rx="1.5" fill="#020617"/>
+            <rect x="80" y="8" width="32" height="32" rx="3" stroke="#020617" stroke-width="6" fill="#FFFFFF"/>
+            <rect x="89" y="17" width="14" height="14" rx="1.5" fill="#020617"/>
+            <rect x="8" y="80" width="32" height="32" rx="3" stroke="#020617" stroke-width="6" fill="#FFFFFF"/>
+            <rect x="17" y="89" width="14" height="14" rx="1.5" fill="#020617"/>
+            <!-- Các điểm dữ liệu QR Matrix -->
+            <g fill="#020617">
+              <rect x="48" y="10" width="6" height="6"/><rect x="60" y="10" width="6" height="12"/><rect x="48" y="22" width="6" height="12"/>
+              <rect x="60" y="28" width="12" height="6"/><rect x="48" y="40" width="12" height="6"/><rect x="66" y="40" width="6" height="12"/>
+              <rect x="10" y="48" width="12" height="6"/><rect x="28" y="48" width="6" height="12"/><rect x="10" y="60" width="6" height="12"/>
+              <rect x="22" y="66" width="12" height="6"/><rect x="80" y="48" width="12" height="6"/><rect x="98" y="48" width="12" height="12"/>
+              <rect x="86" y="60" width="6" height="12"/><rect x="104" y="66" width="6" height="12"/><rect x="48" y="78" width="12" height="6"/>
+              <rect x="66" y="72" width="6" height="12"/><rect x="78" y="78" width="12" height="12"/><rect x="96" y="84" width="14" height="6"/>
+              <rect x="48" y="90" width="6" height="18"/><rect x="60" y="96" width="12" height="6"/><rect x="78" y="96" width="6" height="14"/>
+              <rect x="90" y="96" width="12" height="6"/><rect x="60" y="106" width="12" height="6"/><rect x="96" y="106" width="14" height="6"/>
+            </g>
+            <!-- Logo trung tâm QR -->
+            <rect x="44" y="44" width="32" height="32" rx="6" fill="#0f172a" stroke="#22d3ee" stroke-width="2.5"/>
+            <text x="60" y="64" text-anchor="middle" fill="#fde047" font-family="monospace" font-weight="900" font-size="11">AI</text>
+          </svg>
+        </div>
+        <div class="donate-qr-title" id="donateQrTitle">Ủng hộ Quỹ Duy Trì AI</div>
+        <div class="donate-qr-sub" id="donateQrSub">Mục tiêu: 550.000đ (Hạn 20/11)</div>
+        <div class="donate-qr-actions">
+          <button type="button" class="donate-qr-btn" onclick="simulateCash(50000)">☕ +50k</button>
+          <button type="button" class="donate-qr-btn" onclick="setupCustomDonateQr()">⚙️ Cài QR</button>
+        </div>
       </div>
 
       <!-- MẮT HOLOGRAM THỂ HIỆN SỐ NGƯỜI XEM TRỰC TIẾP TRÊN SÀN 3D -->
@@ -2415,12 +2569,55 @@
     let startY = 0;
 
     viewport.addEventListener('mousedown', e => {
-      if (e.target.closest('.holo-screen') || e.target.closest('.inspector-bar')) return;
+      if (e.target.closest('.holo-screen') || e.target.closest('.inspector-bar') || e.target.closest('.donate-qr-hud')) return;
       isDragging = true;
       startX = e.clientX;
       startY = e.clientY;
       world.classList.add('dragging');
     });
+
+    // TÙY CHỈNH & TẠO MÃ VIETQR DONATE THẬT CHO CÔNG TY
+    function applySavedDonateQr() {
+      try {
+        const savedUrl = localStorage.getItem('cinetech_donate_qr_url');
+        const savedLabel = localStorage.getItem('cinetech_donate_qr_label');
+        if (savedUrl) {
+          const qrImg = document.getElementById('donateQrImg');
+          const qrSvg = document.getElementById('donateQrFallbackSvg');
+          if (qrImg) {
+            qrImg.src = savedUrl;
+            qrImg.style.display = 'block';
+          }
+          if (qrSvg) qrSvg.style.display = 'none';
+        }
+        if (savedLabel) {
+          const subEl = document.getElementById('donateQrSub');
+          if (subEl) subEl.textContent = savedLabel;
+        }
+      } catch {}
+    }
+
+    function setupCustomDonateQr() {
+      const bank = prompt('Nhập tên Ngân hàng nhận Donate (VD: MB, VCB, TCB, ACB, BIDV, VPB, TPB):', 'MB');
+      if (!bank) return;
+      const acc = prompt('Nhập Số tài khoản ngân hàng nhận Donate:', '');
+      if (!acc) return;
+      const name = prompt('Nhập Tên chủ tài khoản (không dấu):', 'PHAM KHAC TRUONG');
+      const cleanBank = bank.trim().toUpperCase();
+      const cleanAcc = acc.trim();
+      const vietQrUrl = `https://img.vietqr.io/image/${encodeURIComponent(cleanBank)}-${encodeURIComponent(cleanAcc)}-compact2.png?addInfo=${encodeURIComponent('Donate CineTech AI')}&accountName=${encodeURIComponent(name || '')}`;
+      const label = `${cleanBank} · ${cleanAcc}`;
+      try {
+        localStorage.setItem('cinetech_donate_qr_url', vietQrUrl);
+        localStorage.setItem('cinetech_donate_qr_label', label);
+      } catch {}
+      applySavedDonateQr();
+    }
+
+    function zoomDonateQr() {
+      sendCeoTo(5); // Điều Tổng Biên Tập tới ngay Phòng Tài Chính P.104 để ghi nhận Donate
+    }
+    applySavedDonateQr();
 
     window.addEventListener('mousemove', e => {
       if (!isDragging) return;
